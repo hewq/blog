@@ -20,3 +20,7 @@
 ## nodejs
 
 - [nodemon 因为 Mac 上打开文件数的限制而运行失败的问题]([https://github.com/hewq/blog/blob/master/nodejs/nodemon%20ENFILE:%20file%20table%20overflow.md](https://github.com/hewq/blog/blob/master/nodejs/nodemon ENFILE: file table overflow.md))
+
+## mongodb
+
+- [模糊查询]([https://github.com/hewq/blog/blob/master/mongodb/%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2.md](https://github.com/hewq/blog/blob/master/mongodb/模糊查询.md))
