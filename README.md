@@ -12,6 +12,10 @@
 >
 > [Phaser 3 api](https://photonstorm.github.io/phaser3-docs/index.html)
 
+ps: 我用的是 Phaser 3.x 的版本，Phaser 3.x 和 Phaser 2.x 的 api 有所不同
+
+- [先让 Phaser 跑起来]()
+
 
 
 ### 2019.03
