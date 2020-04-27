@@ -1,4 +1,4 @@
-![](./title.jpeg)
+![](./title.jpg)
 
 <center><font color=#5192e4>一只前端 🦍 的笔记</font></center>
 
