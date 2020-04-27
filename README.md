@@ -18,6 +18,7 @@ ps: 我用的是 Phaser 3.x 的版本，Phaser 3.x 和 Phaser 2.x 的 api 有所
 
 - [先让 Phaser 跑起来](https://github.com/hewq/blog/blob/master/Phaser/helloworld.md)
 - [Phaser 的截图功能](https://github.com/hewq/blog/blob/master/Phaser/snapshotarea.md)
+- [Phaser 小游戏——小球成长]()
 
 
 
