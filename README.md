@@ -1,8 +1,10 @@
-![](./title.jpg)
+![](title.jpg)
 
 <center><font color=#5192e4>一只前端 🦍 的笔记</font></center>
 
 ## 不定期更新中————
+
+![](phaser.jpg)
 
 ### Phaser 系列
 
