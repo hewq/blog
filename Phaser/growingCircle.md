@@ -261,3 +261,5 @@ class PlayGame extends Phaser.Scene {
 ```
 
 至此，整个游戏我们就做完啦！🦍🦍🦍
+
+[在 GitHub 上查看完整代码👇](https://github.com/hewq/Phaser/tree/master/apps/a20200427growingcircle)
