@@ -37,7 +37,7 @@ let's go!
 <body>
     <div id="game"></div>
 
-    <script src="./phaser.min.js"></script>
+    <script src="/public/js/phaser.min.js"></script>
     <script>
         let game
         let gameOptions = {
