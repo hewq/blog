@@ -16,7 +16,7 @@
   - [怎么处理跨域问题？](#怎么处理跨域问题)
   - [localStorage、sessionStorage 和 cookie 的区别？](#localstoragesessionstorage-和-cookie-的区别)
   - [排序算法](#排序算法)
-  - [实现一个浮点数相加的方法，要保证精度？（0.1 + 0.2 = 0.3）](#实现一个浮点数相加的方法要保证精度01--02--03)
+  - [实现一个浮点数相加的方法，要保证精度（0.1 + 0.2 = 0.3）](#实现一个浮点数相加的方法要保证精度01--02--03)
   - [rem 和 em](#rem-和-em)
   - [css 选择器优先级](#css-选择器优先级)
   - [flex 1](#flex-1)
@@ -27,6 +27,7 @@
   - [深拷贝](#深拷贝)
   - [浏览器的渲染过程](#浏览器的渲染过程)
   - [判断数组的方法](#判断数组的方法)
+  - [css布局：左边固定右边自适应和左右固定中间自适应](#css布局左边固定右边自适应和左右固定中间自适应)
   - [代码题](#代码题)
 
 <!-- /TOC -->
@@ -174,26 +175,87 @@ fibCache(10);
     - etag/if-none-match(http1.1)：值为一段字符串，表示文件的唯一标识，当浏览器再次发送请求时，设置请求头 `if-none-match` 的值为上次请求中 `etag` 的值，服务器比对 `etag` 和 `if-none-match`，如果相同则命中协商缓存。
 ## 怎么处理 CSRF、XSS 漏洞？
 
-
-
 ## 怎么处理跨域问题？
 - 1.服务器设置响应头：`access-control-allow-origin`，放开跨域问题；
 - 2.利用 JSONP 处理，因为 JSONP 是通过创建 `script` 标签的方式发送请求，所以只能用于 `get` 方法；
 - 3.通过服务器的反向代理方式。
 ## localStorage、sessionStorage 和 cookie 的区别？
+
 ## 排序算法
-## 实现一个浮点数相加的方法，要保证精度？（0.1 + 0.2 = 0.3）
+
+## 实现一个浮点数相加的方法，要保证精度（0.1 + 0.2 = 0.3）
+```javascript
+  function sum(num1, num2) {
+    let str1 = num1.toString();
+    let str2 = num2.toString();
+    let point1 = str1.indexOf('.');
+    let point2 = str2.indexOf('.');
+    let intNum1 = parseInt(str1.split('.').join(''), 10);
+    let intNum2 = parseInt(str2.split('.').join(''), 10);
+    let offset = Math.abs(point1 - point2);
+    let ret;
+
+    if (point1 > point2) {
+        intNum1 = intNum1 * Math.pow(10, offset);
+        ret = (intNum1 + intNum2) / Math.pow(10, point1);
+    } else if (point1 < point2) {
+        intNum2 = intNum2 * Math.pow(10, offset);
+        ret = (intNum1 + intNum2) / Math.pow(10, point2);
+    } else {
+        ret = (intNum1 + intNum2) / Math.pow(10, point1);
+    }
+    return ret
+  }
+```
 ## rem 和 em
 rem 是根据根节点的 `font-size` 变化，em 是根据父级节点的 `font-size` 变化。
 ## css 选择器优先级
 
 ## flex 1
+`flex`是`flex-grow`、`flex-shrink`和`flex-basis`的缩写，`flex: 1`即是`flex: 1 1 auto`的缩写。
+相关阅读：
+http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex
 ## 实现上下左右居中
+```css
+/* 方式一 */
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 方式二 */
+.box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+/* 方式三 */
+.box {
+  display: flex;
+  justify-content: center;
+  align-item: center;
+}
+```
 ## get 和 post 的区别
+
 ## 清除浮动的几种方式
+- `clear: both`
+- 伪类：`&:after {content: "";clear: both;display: block;}`
+- 给父级容器设置高度
+- BFC 方式，详见：https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context
 ## 1px 问题
+
 ## 深拷贝
+
 ## 浏览器的渲染过程
+
 ## 判断数组的方法
 ```javascript
 let arr = [];
@@ -205,6 +267,90 @@ if (arr instanceof Array) console.log('is array');
 if (Object.prototype.toString.apply(arr).toLowerCase() === '[object array]') console.log('is array');
     
 ```
+## css布局：左边固定右边自适应和左右固定中间自适应
+- 左边固定右边自适应
+  - `position`
+    ```css
+      .box {
+        width: 200px;
+        position: relative;
+      }
+      
+      .left {
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        background-color: aqua;
+        opacity: 0.5;
+      }
+      
+      .right {
+        margin-left: 50px;
+        background-color: bisque;
+      }
+    ```
+  - `float`
+    ```css
+      .box {
+        width: 200px;
+      }
+      
+      .left {
+        float: left;
+        width: 50px;
+        height: 100px;
+        background-color: aqua;
+        opacity: 0.5;
+      }
+      
+      .right {
+        background-color: bisque;
+      }
+      ```
+  - `flex`
+    ```css
+      .box {
+        width: 200px;
+        display: flex;
+      }
+      
+      .left {
+        width: 50px;
+        height: 100px;
+        background-color: aqua;
+        opacity: 0.5;
+      }
+      
+      .right {
+        flex: 1;
+        margin-left: 50px;
+        background-color: bisque;
+      }
+    ```
+- 左右固定中间自适应
+  - `flex`
+    ```css
+      .box {
+        width: 200px;
+        display: flex;
+      }
+      .left {
+        width: 50px;
+        height: 100px;
+        background-color: aqua;
+        opacity: 0.5;
+      }
+      
+      .mid {
+        flex: 1;
+        background-color: chocolate;
+      }
+      
+      .right {
+        width: 80px;
+        background-color: bisque;
+      }
+    ```
 ## 代码题
 ```javascript
 // 请写出输出结果
