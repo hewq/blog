@@ -1,4 +1,5 @@
 # 2020前端面试题汇总（2020.05-2020.10）
+
 > 2020 年 5 月份选择了裸辞，这是一个不理智的决定，面试之后才发现自己有太多的不足，再加上疫情之后的经济环境，历经 5 个月终于才找到了一份工作。现在把这 5 月所有的面试题记录下来做一次总结，在此感谢在这 5 个月里关心我和帮我推荐工作的人们。
 
 <!-- TOC -->
@@ -64,18 +65,21 @@
         color: red;
     }
     /*
-        css 会先遍历所有的`a`标签，再找到`.nav`下的`a`标签。
+        css 会先遍历所有的 a 标签，再找到 .nav 下的 a 标签。
     */
+
   - 减少 dom 操作的次数。
   - 注意内存回收，尤其是再 dom 节点或 dom 节点绑定的方法赋值个某个变量时。
   - 减少绑定方法的次数。
   - 尽量使用 transform 或者 opacity 来实现动画效果。相关阅读：<https://fed.taobao.org/blog/taofed/do71ct/performance-composite/>
   - for 循环体先将循环次数放到变量中，避免多次取值影响性能
+
     ```javascript
       // 错误
       for (let i = 0; i < arr.length; i++) {}
       // 正确
       for (let i = 0, len = arr.length; i < len; i++) {}
+
   - 避免使用全局变量
     因为原型链的存在，使用全局变量要比局部变量开销更大。
   - if 语句分支过多时，应当使用 switch；switch 可以直接定位到指定条件。
@@ -212,6 +216,132 @@ fibCache(10);
 
 ## 排序算法
 
+- 冒泡排序
+
+  ```JavaScript
+    // 冒泡排序
+    function bubbleSort(arr) {
+        let len = arr.length;
+        for (let i = 0; i < len; i++) {
+            for (let j = 0; j < len - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                }
+            }
+        }
+        return arr;
+    }
+  ```
+
+- 选择排序
+
+  ```javascript
+    function selectionSort(arr) {
+      let len = arr.length;
+      let indexMin;
+      for (let i = 0; i < len - 1; i++) {
+        indexMin = i;
+        for (let j = i + 1; j < len; j++) {
+          if (arr[j] < arr[indexMin]) {
+              indexMin = j
+          }
+        }
+
+        if (i !== indexMin) {
+          [arr[i], arr[indexMin]] = [arr[indexMin], arr[i]]
+        }
+      }
+      return arr;
+    }
+  ```
+
+- 插入排序
+
+  ```javascript
+    function insertSort(arr) {
+      let len = arr.length;
+      let temp;
+      for (let i = 1; i < len; i++) {
+        temp = arr[i];
+        let j = i - 1;
+        while (j >= 0 && temp < arr[j]) {
+          arr[j + 1] = arr[j];
+          j--;
+        }
+        arr[j + 1] = temp;
+      }
+      return arr;
+    }
+  ```
+
+- 快速排序
+  
+  ```javascript
+    function quickSort(arr) {
+      function quick(arr, left, right) {
+        if (arr.length < 2) return arr;
+        let piovt = arr[Math.floor((left + right) / 2)];
+        let indexLeft = left;
+        let indexRight = right;
+        while (indexLeft <= indexRight) {
+          while (arr[indexLeft] < piovt) {
+            indexLeft++;
+          }
+          while (arr[indexRight] > piovt) {
+            indexRight--;
+          }
+
+          if (indexLeft <= indexRight) {
+            [arr[indexLeft], arr[indexRight]] = [arr[indexRight], arr[indexLeft]];
+            indexLeft++;
+            indexRight--;
+          }
+        }
+        if (left < indexLeft - 1) {
+          quick(arr, left, indexLeft - 1);
+        }
+        if (right > indexRight + 1) {
+          quick(arr, indexRight + 1, right);
+        }
+      }
+      quick(arr, 0, arr.length - 1);
+      return arr;
+    }
+  ```
+
+- 归并排序
+
+  ```javascript
+    function mergeSort(arr) {
+      let len = arr.length;
+      if (len > 1) {
+        let mid = Math.floor(len / 2);
+        let left = mergeSort(arr.slice(0, mid));
+        let right = mergeSort(arr.slice(mid, len));
+        arr = merge(left, right);
+      }
+
+      function merge(left, right) {
+        let indexLeft = 0;
+        let indexRight = 0;
+        let res = [];
+        while (indexLeft < left.length && indexRight < right.length) {
+          if (left[indexLeft] < right[indexRight]) {
+            res.push(left[indexLeft++]);
+          } else {
+            res.push(right[indexRight++]);
+          }
+        }
+        if (indexLeft < left.length) {
+          return [...res, ...left.slice(indexLeft)];
+        } else {
+          return [...res, ...right.slice(indexRight)];
+        }
+      }
+      return arr;
+    }
+  ```
+
 ## 实现一个浮点数相加的方法，要保证精度（0.1 + 0.2 = 0.3）
 
 ```javascript
@@ -248,8 +378,8 @@ rem 是根据根节点的 `font-size` 变化，em 是根据父级节点的 `font
 
 `flex`是`flex-grow`、`flex-shrink`和`flex-basis`的缩写，`flex: 1`即是`flex: 1 1 auto`的缩写。
 相关阅读：
-http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
-https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex
+<http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html>
+<https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex>
 
 ## 实现上下左右居中
 
@@ -285,7 +415,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex
 - `clear: both`
 - 伪类：`&:after {content: "";clear: both;display: block;}`
 - 给父级容器设置高度
-- BFC 方式，详见：https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context
+- BFC 方式，详见：<https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context>
 
 ## 移动端 1px 问题
 
@@ -297,6 +427,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex
 ## 深拷贝
 
 - `JSON.parse(JSON.stringify())`，不够全面。
+
 - ```javascript
   function clone(target, memoMap = new WeakMap()) {
     if (typeof target === 'object') {
@@ -314,6 +445,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex
     }
   }
   ```
+
 相关阅读：<https://juejin.im/post/6844903929705136141#heading-14>
 
 ## 浏览器的渲染过程
@@ -340,6 +472,7 @@ if (Object.prototype.toString.apply(arr).toLowerCase() === '[object array]') con
 
 - 左边固定右边自适应
   - `position`
+
     ```css
       .box {
         width: 200px;
@@ -357,7 +490,9 @@ if (Object.prototype.toString.apply(arr).toLowerCase() === '[object array]') con
         background-color: bisque;
       }
     ```
+
   - `float`
+
     ```css
       .box {
         width: 200px;
@@ -373,7 +508,9 @@ if (Object.prototype.toString.apply(arr).toLowerCase() === '[object array]') con
         background-color: bisque;
       }
       ```
+
   - `flex`
+
     ```css
       .box {
         width: 200px;
@@ -391,8 +528,10 @@ if (Object.prototype.toString.apply(arr).toLowerCase() === '[object array]') con
         background-color: bisque;
       }
     ```
+
 - 左右固定中间自适应
   - `flex`
+
     ```css
       .box {
         width: 200px;
@@ -413,7 +552,9 @@ if (Object.prototype.toString.apply(arr).toLowerCase() === '[object array]') con
         background-color: bisque;
       }
     ```
+
   - 浮动
+
     ```html
       <div class="box">
         <div class='left'>左边左边左边左边左边左边左边</div>
@@ -421,6 +562,7 @@ if (Object.prototype.toString.apply(arr).toLowerCase() === '[object array]') con
         <div class="mid">中间中间中间中间中间中间中间中间</div>
       </div>
     ```
+
     ```css
       .box {
         width: 200px;
@@ -442,7 +584,9 @@ if (Object.prototype.toString.apply(arr).toLowerCase() === '[object array]') con
         background-color: bisque;
       }
     ```
+
   - `table`布局
+
     ```css
       .box {
         width: 200px;
@@ -465,7 +609,9 @@ if (Object.prototype.toString.apply(arr).toLowerCase() === '[object array]') con
         display: table-cell;
       }
     ```
+
   - 绝对定位
+
     ```css
       .box {
         width: 200px;
