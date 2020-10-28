@@ -374,6 +374,8 @@ rem 是根据根节点的 `font-size` 变化，em 是根据父级节点的 `font
 
 ## css 选择器优先级
 
+!important > 内联 style > ID 选择器 > 类选择器 > 标签选择器 > 通配符选择器
+
 ## flex 1
 
 `flex`是`flex-grow`、`flex-shrink`和`flex-basis`的缩写，`flex: 1`即是`flex: 1 1 auto`的缩写。
