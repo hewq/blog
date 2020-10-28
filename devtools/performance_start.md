@@ -1,4 +1,4 @@
-# Chrome 开发者工具——Performance 快速入门
+# Chrome 开发者工具 —— Performance 快速入门
 
 > 原文链接：<https://developers.google.com/web/tools/chrome-devtools/evaluate-performance?hl=zh-cn>
 > 如果你想学会如何使用 Chrome 的 Performance 来分析页面性能，而你有无法使用 Google，也许这篇文章能帮到你。
@@ -6,7 +6,7 @@
 
 <!-- TOC -->
 
-- [Chrome 开发者工具——Performance 快速入门](#chrome-开发者工具performance-快速入门)
+- [Chrome 开发者工具 —— Performance 快速入门](#chrome-开发者工具--performance-快速入门)
   - [开始](#开始)
   - [模拟手机 CPU](#模拟手机-cpu)
   - [设置 Demo](#设置-demo)
@@ -96,6 +96,7 @@
 需要了解的内容有很多，但是现在你已经有了分析运行时性能的基本流程的基础。加油！
 
 ***分析优化版本***
+
 使用刚刚学到的工具和流程，点击页面上 **Optimize** 启用优化后的代码，获取另一个性能记录，然后分析结果。从提高帧率到 **Main** 火焰图中事件的减少，你可以看到，优化后的页面工作量大大减少，从而提高了性能。
 
 ***即使这个“优化”版本也不是那么好，因为它仍然操纵每个正方形的 top 属性。更好的方法是使用只影响合成层的属性。**
