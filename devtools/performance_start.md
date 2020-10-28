@@ -1,7 +1,7 @@
 # Chrome 开发者工具 —— Performance 快速入门
 
 > 原文链接：<https://developers.google.com/web/tools/chrome-devtools/evaluate-performance?hl=zh-cn>
-> 如果你想学会如何使用 Chrome 的 Performance 来分析页面性能，而你有无法使用 Google，也许这篇文章能帮到你。
+> 如果你想学会如何使用 Chrome 的 Performance 来分析页面性能，而你又无法使用 Google，也许这篇文章能帮到你。
 > 这篇文章将教会你如何使用 Performance 面板来分析浏览器运行时的性能。
 
 <!-- TOC -->
