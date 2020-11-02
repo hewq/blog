@@ -32,3 +32,4 @@ ps: 我用的是 Phaser 3.x 的版本，Phaser 3.x 和 Phaser 2.x 的 api 有所
 ## Chrome DevTools
 
 - [Chrome 开发者工具——Performance 快速入门](https://github.com/hewq/blog/blob/master/devtools/performance_start.md)
+- [Chrome 开发者工具 —— 命令行菜单（Command Menu）的使用](https://github.com/hewq/blog/blob/master/devtools/command_menu.md)
