@@ -13,7 +13,8 @@
 
 ## Show Rendering
 
-- 选中 **FPS Meter**（或者 Frame Rendering Stats）, FPS 的实时数据就会显示出来。![fps-meter](images/fps-meter.png)
+- **FPS Meter**（或者 Frame Rendering Stats）, FPS 的实时数据就会显示出来。![fps-meter](images/fps-meter.png)
+- **Paint flashing** 使用 **Paint flashing** 来获得页面上所有绘制事件的实时视图。每当页面的某一部分被重新绘制时，DevTools 会都会将其标记出来。
 
 ## Show Coverage
 
