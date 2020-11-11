@@ -2,20 +2,24 @@
 
 ![title](title.jpg)
 
-## Phaser 系列
+## Phaser
 
-> Phaser 是国外的一款的开源的h5游戏框架，国内的用的人似乎比较少，有关的博客文章也很少，在这里稍稍做一下📝
->
-> [Phaser 官网](http://phaser.io/)
->
-> [Phaser 3 api](https://photonstorm.github.io/phaser3-docs/index.html)
-
-ps: 我用的是 Phaser 3.x 的版本，Phaser 3.x 和 Phaser 2.x 的 api 有所不同
+### Phaser Tutorial
 
 - [先让 Phaser 跑起来](https://github.com/hewq/blog/blob/master/Phaser/helloworld.md)
 - [Phaser 的截图功能](https://github.com/hewq/blog/blob/master/Phaser/snapshotarea.md)
 - [Phaser 小游戏——小球成长](https://github.com/hewq/blog/blob/master/Phaser/growingCircle.md)
 - [Phaser 小游戏——消消乐](https://github.com/hewq/blog/blob/master/Phaser/dragandmatch.md)
+
+### Phaser 3 Examples
+
+[Phaser 3 Examples](https://github.com/hewq/Phaser)
+
+## Cocos Creator
+
+### Cocos Creator Examples
+
+[Cocos Creator Examples](https://github.com/hewq/Cocos2d-JS)
 
 ## 面试题
 
