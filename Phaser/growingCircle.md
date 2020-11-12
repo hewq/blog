@@ -1,17 +1,19 @@
 # Phaser 小游戏——小球成长
 
-*view: <https://hewq.github.io/apps/a20200427growingcircle/index.html>*
-*source: <https://github.com/hewq/Phaser/tree/master/apps/a20200427growingcircle>*
+***关于作者：<https://hewq.github.io/apps/resume/index.html>***
 
-> 需求：
->
-> 1. 小球在画布内不规则运动，不会发生碰撞，只会重叠在一起
-> 2. 有和小球相同数量的按钮
-> 3. 每个小球都有自己都编号并且和相应编号的按钮绑定
-> 4. 长按按钮，相应的小球会变大
-> 5. 松开按钮，小球停止变大
-> 6. 如果正在变大的小球和其他任何一个小球相碰，两个小球的大小缩小一半并且停止变大
-> 7. 每个球只能变大一次
+| 需求 |
+| --- |
+| 1. 小球在画布内不规则运动，不会发生碰撞，只会重叠在一起。 |
+| 2. 有和小球相同数量的按钮。 |
+| 3. 每个小球都有自己都编号并且和相应编号的按钮绑定。 |
+| 4. 长按按钮，相应的小球会变大。 |
+| 5. 松开按钮，小球停止变大。 |
+| 6. 如果正在变大的小球和其他任何一个小球相碰，两个小球的大小缩小一半并且停止变大。 |
+| 7. 每个球只能变大一次。 |
+
+- *view: <https://hewq.github.io/apps/a20200427growingcircle/index.html>*
+- *source: <https://github.com/hewq/Phaser/tree/master/apps/a20200427growingcircle>*
 
 ## 先把简单的框架搭起来
 
