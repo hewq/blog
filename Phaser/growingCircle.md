@@ -1,8 +1,5 @@
 # Phaser 小游戏——小球成长
 
-- *view: <https://hewq.github.io/apps/a20200427growingcircle/index.html>*
-- *source: <https://github.com/hewq/Phaser/tree/master/apps/a20200427growingcircle>*
-
 | 需求 |
 | --- |
 | 1. 小球在画布内不规则运动，不会发生碰撞，只会重叠在一起。 |
@@ -257,6 +254,10 @@ class PlayGame extends Phaser.Scene {
 
 至此，整个游戏我们就做完啦！🦍🦍🦍
 
+> ***预览：<https://hewq.github.io/apps/a20200427growingcircle/index.html>***
+>
+> ***代码：<https://github.com/hewq/Phaser/tree/master/apps/a20200427growingcircle>***
+>
 > ***关于作者：<https://hewq.github.io/apps/resume/index.html>***
 >
 > ***参考：<http://phaser.io/news/2020/04/hundreds-flash-game-prototype>***
