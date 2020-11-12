@@ -1,4 +1,4 @@
-## Phaser 的基本使用
+# Phaser 的基本使用
 
 ```html
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
   <body>
     <div id="game" class="game"></div>
     <script>
-    	let config = {
+      let config = {
         type: Phaser.AUTO,
         parent: 'game',
         width: 750,
@@ -23,11 +23,11 @@
         }
       }
       let game = new Phaser.Game(config)
-      
+
       let preload = function () {
         this.load.image('key', 'url')
       }
-      
+
       let create = function () {
         this.add.image(100, 100, 'key')
       }
@@ -50,4 +50,3 @@
   - `scene` ：[Phaser.Types.Scenes.CreateSceneFromObjectConfig](https://photonstorm.github.io/phaser3-docs/Phaser.Types.Scenes.html#.CreateSceneFromObjectConfig) | Phaser.Scene | function | Array，添加到游戏中的场景，如果有多个则显示第一个
     - `preload` ：场景的预加载回调函数
     - `create`： 场景创建的回调函数，在 `init` 和 `preload` 之后调用此方法
-

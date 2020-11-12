@@ -1,4 +1,4 @@
-## Phaser 画布截图
+# Phaser 画布截图
 
 现在很多在微信做推广的 h5 经常需要用到长按保存活动图片的功能，Phaser 就有这样一个 api 可以直接用来截图保存
 
@@ -26,7 +26,7 @@
         },
         snapshot() {
             return new Promise((resolve) => {
-              	// 主要就是这句代码
+                // 主要就是这句代码
                 this.game.renderer.snapshotArea(0, 0, 750, 1464, (image) => {
                     $('.snapshot').append(image)
                     resolve()
@@ -38,8 +38,8 @@
           this.snapshot()
         }
       })
-        
-    	let config = {
+
+      let config = {
         type: Phaser.AUTO,
         parent: 'game',
         width: 750,
@@ -68,4 +68,3 @@
 ***tips: 如果使用 `image/png` 格式保存的图片有白边的话，可以使用 `image/jpeg` 格式，避免出现白边***
 
 [更多截图相关的 API， 可自行查阅](https://photonstorm.github.io/phaser3-docs/Phaser.Renderer.Canvas.CanvasRenderer.html#snapshotCanvas__anchor)
-
