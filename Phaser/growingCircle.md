@@ -1,8 +1,7 @@
-## Phaser 小游戏——小球成长
+# Phaser 小游戏——小球成长
 
-一起来写一个`小球成长`的游戏吧
-
-let's go!
+*view: <https://hewq.github.io/apps/a20200427growingcircle/index.html>*
+*source: <https://github.com/hewq/Phaser/tree/master/apps/a20200427growingcircle>*
 
 > 需求：
 >
@@ -14,9 +13,7 @@ let's go!
 > 6. 如果正在变大的小球和其他任何一个小球相碰，两个小球的大小缩小一半并且停止变大
 > 7. 每个球只能变大一次
 
-
-
-**0. 先把简单的框架搭起来**
+## 先把简单的框架搭起来
 
 ```html
 <!DOCTYPE html>
@@ -55,12 +52,8 @@ let's go!
                 this.load.image('ball', 'ball.png')
                 this.load.image('button', 'button.png')
             }
-            create() {
-                
-            }
-            update() {
-                
-            }
+            create() {}
+            update() {}
         }
 
         let gameConfig = {
@@ -87,29 +80,29 @@ let's go!
 
 引入 `arcade` 物理系统，方便小球做不规则运动
 
-**1. 放置小球**
+## 放置小球
 
 ```js
 class PlayGame extends Phaser.Scene {
   create() {
     // 设置小球的运动区域
-		this.physics.world.setBounds(0, 0, game.config.width, game.config.width)
+    this.physics.world.setBounds(0, 0, game.config.width, game.config.width)
     let gameArea = new Phaser.Geom.Rectangle(0, 0, game.config.width, game.config.width)
 
     // 物理组对象，存放所有的小球
-    this.ballGroup = this.physics.add.group() 
-    
+    this.ballGroup = this.physics.add.group()
+
     // 生成小球
     for (let i = 0; i < gameOptions.balls; i++) {
       // 运动区域内随机一个点
-      let randomPosition = Phaser.Geom.Rectangle.Random(gameArea) 
-      
+      let randomPosition = Phaser.Geom.Rectangle.Random(gameArea)
+
       // 放置小球
       let ball = this.ballGroup.create(randomPosition.x, randomPosition.y, 'ball')
       // arcade 物理系统中设置小球的边界为圆形
       ball.setCircle(256)
       ball.setCollideWorldBounds(true)
-      
+
       // 宽高
       ball.displayHeight = gameOptions.ballRadius
       ball.displayWidth = gameOptions.ballRadius
@@ -126,7 +119,7 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-**2. 放置按钮**
+## 放置按钮
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -134,7 +127,7 @@ class PlayGame extends Phaser.Scene {
     let buttonPerRow = gameOptions.balls / 2
     let buttonWidth = game.config.width / buttonPerRow
     this.buttonGroup = this.add.group()
-    
+
     // 生成按钮
     for (let i < 0; i < gameOptions.balls; i++) {
       let buttonX = buttonWidth * (i % (gameOptions.balls / 2))
@@ -145,7 +138,7 @@ class PlayGame extends Phaser.Scene {
       button.displayHeight = buttonWidth
       button.index = i
       this.buttonGroup.add(button)
-      
+
       let buttonText = this.add.text(button.getBounds().centerX, button.getBounds().centerY, i, {
         fontFamily: 'Arial',
         fontSize: 64,
@@ -157,7 +150,7 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-**3. 设置分数**
+## 设置分数
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -172,14 +165,14 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-**4. 让小球动起来，不会碰撞，只会重叠**
+## 让小球动起来，不会碰撞，只会重叠
 
 ```js
 class PlayGame extends Phaser.Scene {
   create() {
     this.ballArray = []
     this.textArray = []
-    
+
     for (let i < 0; i < gameOptions.balls; i++) {
       this.ballArray.push(ball)
       this.textArray.push(ballText)
@@ -190,7 +183,7 @@ class PlayGame extends Phaser.Scene {
       // 设置小球的运动方向和速度
       ball.setVelocity(directionVector.x, directionVector.y)
       // 设置小球碰到边界反弹
-      ball.setBounce(1) 
+      ball.setBounce(1)
     }
   }
   update() {
@@ -202,7 +195,7 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-**5. 给按钮绑定事件**
+## 给按钮绑定事件
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -228,7 +221,7 @@ class PlayGame extends Phaser.Scene {
     for (let i = 0; i < gameOptions.balls; i++) {
       this.score += this.ballArray[i].displayWidth - gameOptions.ballRadius;
     }
-    
+
     this.scoreText.text = 'Score: ' + this.score
     if (this.ballToGrow != null) {
       this.ballArray[this.ballToGrow].displayWidth += gameOptions.growRate
@@ -238,7 +231,7 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-**6. 两个球重叠时触发事件**
+## 两个球重叠时触发事件
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -261,5 +254,3 @@ class PlayGame extends Phaser.Scene {
 ```
 
 至此，整个游戏我们就做完啦！🦍🦍🦍
-
-[在 GitHub 上查看完整代码👇](https://github.com/hewq/Phaser/tree/master/apps/a20200427growingcircle)
