@@ -1,20 +1,16 @@
-## Phaser 小游戏——消消乐
+# Phaser 小游戏——消消乐
 
-[体验链接](https://hewq.github.io/apps/a20200428match/index.html)
+| 需求 |
+| --- |
+| 1. 图标成矩形随机排列。 |
+| 2. 可以拖动一行或一列。 |
+| 3. 3个或以上个相同图案连在一起时会被消除。 |
 
 *当前版本一次只能消除一处！*
 
 *若有不足，欢迎指正！*
 
-let's go!
-
-> 需求：
->
-> 1. 图标成矩形随机排列
-> 2. 可以拖动一行或一列
-> 3. 3个或以上个相同图案连在一起时会被消除
-
-**0. 先把 `Phaser` 的主要代码搭起来**
+## 先把 `Phaser` 的主要代码搭起来
 
 ```html
 <!DOCTYPE html>
@@ -47,13 +43,13 @@ let's go!
                 x: 25,
                 y: 300
             },
-            movingX: 'x', 
-            movingY: 'y', 
+            movingX: 'x',
+            movingY: 'y',
         }
 
         let gameAreaW = gameOptions.iconW * gameOptions.columns
         let gameAreaH = gameOptions.iconH * gameOptions.rows
-        
+
         class PlayGame extends Phaser.Scene {
             constructor() {
                 super('PlayGame')
@@ -65,7 +61,7 @@ let's go!
                 })
             }
             create() {
-                
+
             }
         }
 
@@ -88,7 +84,7 @@ let's go!
 </html>
 ```
 
-**1. 设置游戏区域容器**
+## 设置游戏区域容器
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -105,7 +101,7 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-**2. 放置小球**
+## 放置小球
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -133,9 +129,9 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-**3. 拖动小球**
+## 拖动小球
 
-3.1 检测触碰区域获取触碰位置
+### 检测触碰区域获取触碰位置
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -152,7 +148,7 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-3.2 监听拖动
+### 监听拖动
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -230,7 +226,7 @@ class PlayGame extends Phaser.Scene {
           return ret
         },
         onComplete: () => {
-          this.overflowItem && (this.overflowItem.y %= gameAreaH) 
+          this.overflowItem && (this.overflowItem.y %= gameAreaH)
         }
       })
     } else if (this.movingDir === gameOptions.movingX) {
@@ -250,11 +246,10 @@ class PlayGame extends Phaser.Scene {
       })
     }
   }
-            
 }
 ```
 
-3.3 头/尾增加一个临时小球，让拖动看起来更顺畅
+### 头/尾增加一个临时小球，让拖动看起来更顺畅
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -343,7 +338,7 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-3.4 移动后重置位置
+### 移动后重置位置
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -370,7 +365,7 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-3.5 检测图案
+### 检测图案
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -384,7 +379,7 @@ class PlayGame extends Phaser.Scene {
   traversalCol() {
     let matching = false // 和上一个小球类型是否相同
     let lastType = -1 // 上一个小球的类型
-    let matchArr = [] 
+    let matchArr = []
     let col
     let item
     // 判断列
@@ -555,14 +550,14 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-3.6 每次只能消除一处
+### 每次只能消除一处
 
 ```js
 class PlayGame extends Phaser.Scene {
   checkMatchCol(arr, col, colIndex) {
     if (this.matchRow) return
     this.matchCol = true
-    
+
     this.tweens.add({
       targets: arr,
       duration: 400,
@@ -580,13 +575,13 @@ class PlayGame extends Phaser.Scene {
           }
         })
       }
-    })        
+    })
   }
   
   checkMatchRow(arr) {
     if (this.matchCol) return
     this.matchRow = true
-    
+
     this.tweens.add({
       targets: arr,
       duration: 400,
@@ -609,7 +604,7 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-3.7 消除时不能移动
+### 消除时不能移动
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -619,7 +614,7 @@ class PlayGame extends Phaser.Scene {
 }
 ```
 
-3.8 初始化检测
+### 初始化检测
 
 ```js
 class PlayGame extends Phaser.Scene {
@@ -631,5 +626,10 @@ class PlayGame extends Phaser.Scene {
 
 至此，整个游戏我们就做完啦！🦍🦍🦍
 
-[ 查看完整代码👈](https://github.com/hewq/Phaser/tree/master/apps/a20200428match)
-
+> ***预览：<https://hewq.github.io/apps/a20200428match/index.html>***
+>
+> ***代码：<https://github.com/hewq/Phaser/tree/master/apps/a20200428match>***
+>
+> ***参考：<http://phaser.io/news/2020/04/hundreds-flash-game-prototype>***
+>
+> ***作者：<https://hewq.github.io/apps/resume/index.html>***
