@@ -2,7 +2,7 @@
 
 ![title](title.jpg)
 
-***关于作者：<https://hewq.github.io/apps/resume/index.html>***
+> ***关于作者：<https://hewq.github.io/apps/resume/index.html>***
 
 ## Phaser
 
