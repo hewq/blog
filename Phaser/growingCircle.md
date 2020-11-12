@@ -258,6 +258,6 @@ class PlayGame extends Phaser.Scene {
 >
 > ***代码：<https://github.com/hewq/Phaser/tree/master/apps/a20200427growingcircle>***
 >
-> ***关于作者：<https://hewq.github.io/apps/resume/index.html>***
->
 > ***参考：<http://phaser.io/news/2020/04/hundreds-flash-game-prototype>***
+>
+> ***关于作者：<https://hewq.github.io/apps/resume/index.html>***
