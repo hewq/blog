@@ -1,6 +1,7 @@
 # Phaser 小游戏——小球成长
 
-***关于作者：<https://hewq.github.io/apps/resume/index.html>***
+- *view: <https://hewq.github.io/apps/a20200427growingcircle/index.html>*
+- *source: <https://github.com/hewq/Phaser/tree/master/apps/a20200427growingcircle>*
 
 | 需求 |
 | --- |
@@ -12,8 +13,7 @@
 | 6. 如果正在变大的小球和其他任何一个小球相碰，两个小球的大小缩小一半并且停止变大。 |
 | 7. 每个球只能变大一次。 |
 
-- *view: <https://hewq.github.io/apps/a20200427growingcircle/index.html>*
-- *source: <https://github.com/hewq/Phaser/tree/master/apps/a20200427growingcircle>*
+
 
 ## 先把简单的框架搭起来
 
@@ -256,3 +256,5 @@ class PlayGame extends Phaser.Scene {
 ```
 
 至此，整个游戏我们就做完啦！🦍🦍🦍
+
+***关于作者：<https://hewq.github.io/apps/resume/index.html>***
