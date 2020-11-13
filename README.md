@@ -1,6 +1,8 @@
-# 一只前端 🦍 的笔记
+<p align="center">
+  <img width=30% src="md/longmao.png">
+</p>
 
-![title](title.jpg)
+# 一只前端 🦍 的笔记
 
 > ***关于作者：<https://hewq.github.io/apps/resume/index.html>***
 
