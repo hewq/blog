@@ -10,11 +10,11 @@
 
 ### Phaser Tutorial
 
+- [Phaser 小游戏 —— Irresponsible Ninja](https://github.com/hewq/blog/blob/master/Phaser/irresponsible_ninja.md)
+- [Phaser 小游戏 —— 消消乐](https://github.com/hewq/blog/blob/master/Phaser/dragandmatch.md)
+- [Phaser 小游戏 —— 小球成长](https://github.com/hewq/blog/blob/master/Phaser/growingCircle.md)
 - [先让 Phaser 跑起来](https://github.com/hewq/blog/blob/master/Phaser/helloworld.md)
 - [Phaser 的截图功能](https://github.com/hewq/blog/blob/master/Phaser/snapshotarea.md)
-- [Phaser 小游戏 —— 小球成长](https://github.com/hewq/blog/blob/master/Phaser/growingCircle.md)
-- [Phaser 小游戏 —— 消消乐](https://github.com/hewq/blog/blob/master/Phaser/dragandmatch.md)
-- [Phaser 小游戏 —— Irresponsible Ninja](https://github.com/hewq/blog/blob/master/Phaser/irresponsible_ninja.md)
 
 ### Phaser 3 Examples
 
