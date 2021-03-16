@@ -6,6 +6,16 @@
 
 > ***关于作者：<https://hewq.github.io/apps/resume/index.html>***
 
+## JavaScript
+
+- [手写 call、apply、bind 方法](https://github.com/hewq/Front-end/blob/master/apps/demo/call-apply-bind.html)
+- [深拷贝](https://github.com/hewq/Front-end/blob/master/apps/demo/deepcopy.html)
+- [防抖函数](https://github.com/hewq/Front-end/blob/master/apps/demo/debounce.html)
+- [节流函数](https://github.com/hewq/Front-end/blob/master/apps/demo/throttle.html)
+- [手动实现 new 操作符](https://github.com/hewq/Front-end/blob/master/apps/demo/new.html)
+- [es5 继承（寄生组合方式）](https://github.com/hewq/Front-end/blob/master/apps/demo/extends.html)
+- [eventloop](https://github.com/hewq/Front-end/blob/master/apps/demo/eventloop.html)
+
 ## Phaser
 
 ### Phaser Tutorial
